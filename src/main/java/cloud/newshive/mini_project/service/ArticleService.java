@@ -26,9 +26,6 @@ import jakarta.json.JsonReader;
 @Service
 public class ArticleService {
 
-    // @Value("${news.api.api-key}")
-    // public String NEWS_API_KEY;
-
     @Autowired
     ArticleRepo articleRepo;
 
@@ -64,7 +61,7 @@ public class ArticleService {
 
             return response;
         } catch (Exception e) {
-            logger.error(e.toString());
+            logger.error(e.getMessage());
             throw new Exception();
         }
 
@@ -85,6 +82,11 @@ public class ArticleService {
             articleRepo.addTopHeadlines(articleTitle, articleArray.getJsonObject(i).toString());
         }
         jsonReader.close();
+        logger.info("Finished adding top headlines to Redis");
+    }
+
+    public String pingRedis() {
+        return articleRepo.ping();
     }
 
 }

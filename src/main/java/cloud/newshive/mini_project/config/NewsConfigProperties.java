@@ -2,7 +2,7 @@ package cloud.newshive.mini_project.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties("news.api")
+@ConfigurationProperties("news")
 public record NewsConfigProperties(String apiKey) {
     
 }

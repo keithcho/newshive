@@ -14,6 +14,10 @@ public class ArticleRepo {
     @Qualifier("hashTemplate")
     RedisTemplate<String, String> template;
 
+    public String ping() {
+        return template.getConnectionFactory().getConnection().ping();
+    }
+
     public Boolean addTopHeadlines(String hashKey, String value) {
         return template.opsForHash().putIfAbsent(RedisKey.TOP_HEADLINES, hashKey, value);
     }
