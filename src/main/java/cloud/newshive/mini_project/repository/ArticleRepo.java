@@ -1,5 +1,7 @@
 package cloud.newshive.mini_project.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -31,9 +33,11 @@ public class ArticleRepo {
         return template.opsForHash().size(key);
     }
 
-    // public void getTopHeadlines() {
-    //     template.opsForHash().values(RedisKey.TOP_HEADLINES);
-    // }
+    public List<Object> getTopHeadlines() {
+        // Map<Object, Object> articleMap = template.opsForHash().entries(RedisKey.TOP_HEADLINES);
+        List<Object> articleList = template.opsForHash().values(RedisKey.TOP_HEADLINES);
+        return articleList;
+    }
 
     
     

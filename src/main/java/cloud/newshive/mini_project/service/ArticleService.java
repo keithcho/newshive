@@ -1,6 +1,7 @@
 package cloud.newshive.mini_project.service;
 
 import java.io.StringReader;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,7 @@ import cloud.newshive.mini_project.constant.Url;
 import cloud.newshive.mini_project.repository.ArticleRepo;
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
+import jakarta.json.JsonArrayBuilder;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
 
@@ -67,6 +69,8 @@ public class ArticleService {
 
     }
 
+    // 1. Removes existing hash containing top headlines
+    // 2. Adds new hash with current top headlines
     public void addTopHeadlines(String body) {
 
         if (articleRepo.deleteKey(RedisKey.TOP_HEADLINES)) logger.info("Cleared existing top headlines from Redis");
@@ -87,6 +91,22 @@ public class ArticleService {
 
     public String pingRedis() {
         return articleRepo.ping();
+    }
+
+    public JsonArray readTopHeadlines() {
+        List<Object> articleList = articleRepo.getTopHeadlines();
+
+        JsonArrayBuilder jsonArrayBuilder = Json.createArrayBuilder();
+        
+        for (Object article : articleList) {
+            JsonReader jsonReader = Json.createReader(new StringReader(article.toString()));
+            JsonObject articleObject = jsonReader.readObject();
+            jsonArrayBuilder.add(articleObject);
+            jsonReader.close();
+        }
+
+        JsonArray response = jsonArrayBuilder.build();
+        return response;
     }
 
 }
