@@ -19,8 +19,8 @@ public class ArticleRestController {
     ArticleService articleService;
 
     @GetMapping("/top")
-    public ResponseEntity<Object> getTopHeadlines() {
-        JsonArray articleArray = articleService.readTopHeadlines();
+    public ResponseEntity<String> getTopHeadlines() {
+        JsonArray articleArray = articleService.readTopHeadlinesJson();
 
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(articleArray.toString());
     }

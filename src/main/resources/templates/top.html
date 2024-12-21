@@ -21,10 +21,42 @@
     />
 </head>
 <body>
-    <!-- MDB -->
-    <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/8.1.0/mdb.umd.min.js"
-    ></script>
+    <div class="card d-flex" style="width: 48rem; margin-left: auto; margin-right: auto">
+        <div class="card-body">
+          <!--Table-->
+          <table class="table-responsive">
+          </table>
+          <table class="table table-hover table-forum text-center">
+            <!--Table head-->
+            <thead>
+              <tr>
+                <th></th>
+              </tr>
+            </thead>
+            <!--Table head-->
+            <!--Table body-->
+            <tbody>
+              <tr th:each="article : ${articles}">
+                <td class="text-start">
+                  <a th:href="${article.url}" target="_blank" class="font-weight-bold blue-text" th:text="${article.title}">
+                  </a>
+                  <div class="my-2">
+                    <a href="#" class="blue-text">
+                      <strong th:text="${article.sourceName}"></strong>
+                    </a>
+                    <span class="badge bg-secondary mx-1">staff</span><span
+                      class="badge bg-primary mx-1">pro</span><span class="badge bg-warning mx-1">premium</span>
+                    <span th:text="${article.publishedAt}"></span>
+                    <div></div>
+                  </div>
+                </td>
+              </tr>
+              
+            </tbody>
+            <!--Table body-->
+          </table>
+      
+          <!-- Table -->
+      </div>
 </body>
 </html>

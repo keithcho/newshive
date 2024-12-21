@@ -32,6 +32,7 @@ public class DatabaseInitializer implements CommandLineRunner {
             logger.error("Error connecting to Redis: " + e.getMessage());
         }
 
+        // Initialise Redis database with current top headlines
         try {
             ResponseEntity<String> response = articleService.getTopHeadlines();
             articleService.addTopHeadlines(response.getBody());
