@@ -1,0 +1,14 @@
+body {
+    background-image: url('../images/background.jpg');
+}
+
+.container.main {
+    background: #ffffff;
+    padding: 0 3% 0 3%;
+    max-width: 75%;
+}
+.article-title:hover {
+    /* color: #0000EE; */
+    color: #33656d;
+    text-decoration: underline;
+}

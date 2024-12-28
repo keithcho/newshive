@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NewsHive | Top Headlines</title>
+  <title>NewsHive | Search results</title>
   <link rel="icon" type="image/x-icon" th:href="@{/images/honeycomb.png}">
 
   <!-- Bootstrap -->
@@ -27,34 +27,37 @@
 
   <!-- Navbar -->
   <div th:replace="~{navbar :: navbar}"></div>
-
+  
   <!--Main layout-->
   <div class="container main">
     <br>
-    <h2 style="color: #000000">Top Headlines</h2>
+    <h3 style="color: #000000">Search results for "<span th:text="${query}"></span>"</h3>
     <br>
 
     <section>
       <div class="row gx-lg-5">
         <!-- Column 1 -->
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-          <div th:each="article, iterStat : ${articles}" th:if="${iterStat.index > 0 && iterStat.index % 3 == 1}" class="article">
-            <div th:replace="~{bookmark :: bookmark}"></div>
-            <div th:replace="~{article :: news-article}"></div>
+          <div th:each="article, iterStat : ${articles}" 
+                th:if="${iterStat.index > 0 && iterStat.index % 3 == 1}" class="article">
+              <div th:replace="~{bookmark :: bookmark}"></div>
+              <div th:replace="~{article :: news-article}"></div>
           </div>
         </div>
-  
+    
         <!-- Column 2 -->
         <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <div th:each="article, iterStat : ${articles}" th:if="${iterStat.index > 0 && iterStat.index % 3 == 2}" class="article">
+          <div th:each="article, iterStat : ${articles}" 
+                th:if="${iterStat.index > 0 && iterStat.index % 3 == 2}" class="article">
             <div th:replace="~{bookmark :: bookmark}"></div>
             <div th:replace="~{article :: news-article}"></div>
           </div>
         </div>
-  
+    
         <!-- Column 3 -->
         <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <div th:each="article, iterStat : ${articles}" th:if="${iterStat.index > 0 && iterStat.index % 3 == 0}" class="article">
+          <div th:each="article, iterStat : ${articles}" 
+                th:if="${iterStat.index > 0 && iterStat.index % 3 == 0}" class="article">
             <div th:replace="~{bookmark :: bookmark}"></div>
             <div th:replace="~{article :: news-article}"></div>
           </div>
@@ -63,6 +66,27 @@
     </section>
   </div>
   <!--Main layout-->
+
+  <!-- Pagination -->
+  <nav class="my-4" aria-label="Search results pages">
+    <ul class="pagination pagination-circle justify-content-center">
+      <li class="page-item" th:classappend="${page == null or page le 1} ? 'disabled'">
+        <a class="page-link" th:href="@{${(page == null or page le 1) ? '#' : '?q=' + query + '&page=' + (page - 1)}}">Previous</a>
+      </li>
+
+      <li class="page-item" th:classappend="${page == 1} ? active">
+        <a class="page-link" th:href="@{${page == 1 ? '#' : '?q=' + query + '&page=1'}}">1</a>
+      </li>
+      <li class="page-item" th:classappend="${page == 2} ? active">
+        <a class="page-link" th:href="@{${page == 2 ? '#' : '?q=' + query + '&page=2'}}">2</a>
+      </li>
+      
+      <li class="page-item" th:classappend="${page == 2} ? 'disabled'">
+        <a class="page-link" th:href="@{${(page == 2) ? '#' : '?q=' + query + '&page=' + (page + 1)}}">Next</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- Pagination -->
 
   <!-- Footer -->
   <div th:replace="~{footer :: footer}"></div>

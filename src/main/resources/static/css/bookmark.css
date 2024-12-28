@@ -1,0 +1,66 @@
+.article {
+    position: relative;
+}
+
+/* Hide bookmark button by default */
+.bookmark-container {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+  z-index: 9;
+}
+
+/* Show bookmark button on article hover */
+.article:hover .bookmark-container {
+    opacity: 1;
+}
+
+.bookmark-btn {
+    position: static;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0.2rem;
+    font-size: 1.8rem;
+}
+
+.bookmark-btn:focus {
+    outline: none;
+}
+
+.bookmark-btn .bi {
+    color: #ffbb00;
+    transition: all 0.1s ease-in-out;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* .bookmark-btn:hover .bi {
+    color: #c0c0c0;
+} */
+
+/* Show/hide appropriate icon based on bookmark state */
+.bookmark-btn .filled-icon {
+    display: none;
+}
+
+.bookmark-btn:hover .default-icon {
+    display: none;
+}
+
+.bookmark-btn:hover .filled-icon {
+    display: inline;
+    color: #ffbb00;
+    opacity: 0.6;
+}
+
+.bookmark-btn.bookmarked .default-icon {
+    display: none;
+}
+
+.bookmark-btn.bookmarked .filled-icon {
+    display: inline;
+    color: #ffbb00;
+    opacity: 1;
+}

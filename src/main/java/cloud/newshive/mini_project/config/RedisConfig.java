@@ -42,7 +42,7 @@ public class RedisConfig {
         return jcf;
     }
 
-    @Bean("stringTemplate")
+    @Bean("valueTemplate")
     public RedisTemplate<String, String> redisStringTemplate() {
         RedisTemplate<String, String> template = new RedisTemplate<>();
 

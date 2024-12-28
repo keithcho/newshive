@@ -10,9 +10,16 @@ public class Article {
     private String urlToImage;
     private String publishedAt;
     private String content;
+    private boolean bookmarked;
 
 
     public Article() {
+    }
+    public boolean isBookmarked() {
+        return bookmarked;
+    }
+    public void setBookmarked(boolean bookmarked) {
+        this.bookmarked = bookmarked;
     }
     public String getSourceId() {
         return sourceId;
@@ -68,7 +75,4 @@ public class Article {
     public void setContent(String content) {
         this.content = content;
     }
-
-
-    
 }

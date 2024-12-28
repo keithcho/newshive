@@ -1,0 +1,45 @@
+<!-- Article fragment -->
+<div th:fragment="news-article">
+    <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4" th:if="${article.urlToImage != null}">
+        <img th:src="${article.urlToImage}" class="img-fluid" alt="Article Image">
+        <a th:href="${article.url}" target="_blank">
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a>
+    </div>
+    
+    <div class="row mb-3">
+        <div class="col-6">
+            <span class="fw-medium" th:text="${article.sourceName}" style="color: #F37C22">Source</span>
+        </div>
+        <div class="col-6 text-end">
+            <span th:if="${article.publishedAt != null}" class="fw-normal" th:text="${@dateTimeUtils.getTimeAgo(article.publishedAt)}" style="color: #3b332e">Date</span>
+        </div>
+    </div>
+    
+    <a th:href="${article.url}" target="_blank" class="text-dark">
+        <h5 th:text="${article.title}" class="article-title">Article Title</h5>
+        <p th:text="${article.description}">Article Description</p>
+    </a>
+    <hr />
+</div>
+
+<!-- <div th:fragment="oksurf-article">
+    <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4" th:if="${article.urlToImage != null}">
+        <img th:src="${article.urlToImage}" class="img-fluid" alt="Article Image">
+        <a th:href="${article.url}" target="_blank">
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a>
+    </div>
+    
+    <div class="row mb-3">
+        <div class="col-6">
+            <span class="text-muted" th:text="${article.sourceName}" style="color: #F37C22">Source</span>
+        </div>
+    </div>
+    
+    <a th:href="${article.url}" target="_blank" class="text-dark">
+        <h5 th:text="${article.title}" class="article-title">Article Title</h5>
+        <p th:text="${article.description}">Article Description</p>
+    </a>
+    <hr />
+</div> -->

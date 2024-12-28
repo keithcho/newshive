@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NewsHive | Top Headlines</title>
+  <title>NewsHive</title>
   <link rel="icon" type="image/x-icon" th:href="@{/images/honeycomb.png}">
 
   <!-- Bootstrap -->
@@ -31,32 +31,35 @@
   <!--Main layout-->
   <div class="container main">
     <br>
-    <h2 style="color: #000000">Top Headlines</h2>
+    <h2 style="color: #000000"><span th:text="${category}"></span></h2>
     <br>
 
     <section>
       <div class="row gx-lg-5">
         <!-- Column 1 -->
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-          <div th:each="article, iterStat : ${articles}" th:if="${iterStat.index > 0 && iterStat.index % 3 == 1}" class="article">
-            <div th:replace="~{bookmark :: bookmark}"></div>
-            <div th:replace="~{article :: news-article}"></div>
+          <div th:each="article, iterStat : ${articles}" 
+                th:if="${iterStat.index > 0 && iterStat.index % 3 == 1}" class="article">
+              <div th:replace="~{bookmark :: bookmark}"></div>
+              <div th:replace="~{article :: news-article}"></div>
           </div>
-        </div>
+        </div> 
   
         <!-- Column 2 -->
         <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <div th:each="article, iterStat : ${articles}" th:if="${iterStat.index > 0 && iterStat.index % 3 == 2}" class="article">
-            <div th:replace="~{bookmark :: bookmark}"></div>
-            <div th:replace="~{article :: news-article}"></div>
+          <div th:each="article, iterStat : ${articles}" 
+                th:if="${iterStat.index > 0 && iterStat.index % 3 == 2}" class="article">
+              <div th:replace="~{bookmark :: bookmark}"></div>
+              <div th:replace="~{article :: news-article}"></div>
           </div>
         </div>
   
         <!-- Column 3 -->
         <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-          <div th:each="article, iterStat : ${articles}" th:if="${iterStat.index > 0 && iterStat.index % 3 == 0}" class="article">
-            <div th:replace="~{bookmark :: bookmark}"></div>
-            <div th:replace="~{article :: news-article}"></div>
+          <div th:each="article, iterStat : ${articles}" 
+                th:if="${iterStat.index > 0 && iterStat.index % 3 == 0}" class="article">
+              <div th:replace="~{bookmark :: bookmark}"></div>
+              <div th:replace="~{article :: news-article}"></div>
           </div>
         </div>
       </div>
@@ -75,11 +78,9 @@
             const btn = $(this);
             const articleData = {
               title: btn.data('title'),
-              description: btn.data('description'),
               url: btn.data('url'),
               urlToImage: btn.data('urlToImage'),
               sourceName: btn.data('sourceName'),
-              publishedAt: btn.data('publishedAt')
             };
             
             $.ajax({

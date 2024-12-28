@@ -34,11 +34,7 @@ public class ArticleRepo {
     }
 
     public List<Object> getTopHeadlines() {
-        // Map<Object, Object> articleMap = template.opsForHash().entries(RedisKey.TOP_HEADLINES);
         List<Object> articleList = template.opsForHash().values(RedisKey.TOP_HEADLINES);
         return articleList;
     }
-
-    
-    
 }

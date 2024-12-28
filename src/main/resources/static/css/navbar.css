@@ -1,0 +1,46 @@
+.navbar {
+    background-color: #f0c390;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+a.navbar-brand:hover {
+    color: #482b00;
+}
+
+.navbar-nav {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.navbar-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+a.nav-link.dropdown-toggle {
+    color: #000000;
+}
+
+a.nav-link.dropdown-toggle:hover {
+    color: #482b00;
+}
+
+.dropdown-menu {
+    min-width: 1rem;
+}
+
+a.dropdown-item {
+    font-weight: bold;
+    color: #000000;
+}
+
+i.fas.fa-search.align-middle.fs-5:hover {
+    color: #482b00;
+}

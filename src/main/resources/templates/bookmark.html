@@ -1,0 +1,15 @@
+<div th:if="${email != null and #bools.isTrue(isAuthenticated)}" class="bookmark-container" th:fragment="bookmark">
+    <button 
+        class="bookmark-btn"
+        th:classappend="${article.bookmarked ? 'bookmarked' : ''}"
+        th:attr="
+            data-title=${article.title},
+            data-description=${article.description},
+            data-url=${article.url},
+            data-url-to-image=${article.urlToImage},
+            data-source-name=${article.sourceName},
+            data-published-at=${article.publishedAt}">
+        <i class="bi bi-bookmark default-icon"></i>
+        <i class="bi bi-bookmark-fill filled-icon"></i>
+    </button>
+</div>
