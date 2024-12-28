@@ -2,10 +2,18 @@
 
 **NewsHive** is a news feed aggregator that features a full email authentication flow without the need for passwords.
 
+## Features
+
+- 📈 Over 100 news sources 
+- 🔍 Search for news articles 
+- 🔖 Bookmarking for logged in users
+- 🔒 Secure passwordless login
+- 🤖 Free API endpoint for cached results
+
 ## Requirements
 
 | Spring Boot | | Description |
-| - | - | - |
+| --- | --- | --- |
 | Must handle HTTP POST and GET request | &check; | |
 | Must include parameterized routes (`@PathVariable`) | &check; | `/category` GET endpoint uses `@PathVariable` to display various news categories |
 | Must include form validation | &check; |  Form validation is present for login and email verification |
