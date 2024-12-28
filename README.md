@@ -1,6 +1,6 @@
 ## Description
 
-**NewsHive** is a news feed aggregator that features a full email authentication flow without the need for passwords.
+🐝 **NewsHive** is a news feed aggregator that features a full email authentication flow without the need for passwords.
 
 ## Features
 
@@ -32,3 +32,32 @@
 | You must deploy your application to Railway or any public cloud provider. You will be using your deployed application for your presentation. If you present your application from your notebook, marks will be deducted. | &check; | Deployed to Railway using Docker |
 | Spring Boot application must be deployed on JDK 23 | &check; | JDK 23 |
 | Redis database must be in the 'cloud.’ | &check; | Uses Redis Cloud |
+
+## Configuration
+
+### Redis
+
+This project uses a Redis Stack server as the database. Configure the database properties:
+
+```properties
+spring.data.redis.host=
+spring.data.redis.port=
+spring.data.redis.username=
+spring.data.redis.password=
+```
+
+### Required API Keys
+
+- [NewsAPI](https://newsapi.org/)
+- [MailerSend API](https://www.mailersend.com/features/email-api)
+
+```properties
+# NewsAPI Key
+secret.news-api-key=
+
+# MailerSend API key
+secret.mailersend-api-key=
+
+# Email domain
+secret.domain=
+```
