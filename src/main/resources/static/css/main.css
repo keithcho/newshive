@@ -6,6 +6,7 @@ body {
     background: #ffffff;
     padding: 0 3% 0 3%;
     max-width: 75%;
+    min-height: 100vh;
 }
 .article-title:hover {
     /* color: #0000EE; */

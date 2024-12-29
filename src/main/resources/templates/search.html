@@ -29,7 +29,7 @@
   <div th:replace="~{navbar :: navbar}"></div>
   
   <!--Main layout-->
-  <div class="container main">
+  <div class="container main pb-2">
     <br>
     <h3 style="color: #000000">Search results for "<span th:text="${query}"></span>"</h3>
     <br>
@@ -64,30 +64,30 @@
         </div>
       </div>
     </section>
+    
+    <!-- Pagination -->
+    <nav class="mt-4" aria-label="Search results pages">
+      <ul class="pagination pagination-circle justify-content-center">
+        <li class="page-item" th:classappend="${page == null or page le 1} ? 'disabled'">
+          <a class="page-link" th:href="@{${(page == null or page le 1) ? '#' : '?q=' + query + '&page=' + (page - 1)}}">Previous</a>
+        </li>
+        
+        <li class="page-item" th:classappend="${page == 1} ? active">
+          <a class="page-link" th:href="@{${page == 1 ? '#' : '?q=' + query + '&page=1'}}">1</a>
+        </li>
+        <li class="page-item" th:classappend="${page == 2} ? active">
+          <a class="page-link" th:href="@{${page == 2 ? '#' : '?q=' + query + '&page=2'}}">2</a>
+        </li>
+        
+        <li class="page-item" th:classappend="${page == 2} ? 'disabled'">
+          <a class="page-link" th:href="@{${(page == 2) ? '#' : '?q=' + query + '&page=' + (page + 1)}}">Next</a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Pagination -->
   </div>
   <!--Main layout-->
-
-  <!-- Pagination -->
-  <nav class="my-4" aria-label="Search results pages">
-    <ul class="pagination pagination-circle justify-content-center">
-      <li class="page-item" th:classappend="${page == null or page le 1} ? 'disabled'">
-        <a class="page-link" th:href="@{${(page == null or page le 1) ? '#' : '?q=' + query + '&page=' + (page - 1)}}">Previous</a>
-      </li>
-
-      <li class="page-item" th:classappend="${page == 1} ? active">
-        <a class="page-link" th:href="@{${page == 1 ? '#' : '?q=' + query + '&page=1'}}">1</a>
-      </li>
-      <li class="page-item" th:classappend="${page == 2} ? active">
-        <a class="page-link" th:href="@{${page == 2 ? '#' : '?q=' + query + '&page=2'}}">2</a>
-      </li>
-      
-      <li class="page-item" th:classappend="${page == 2} ? 'disabled'">
-        <a class="page-link" th:href="@{${(page == 2) ? '#' : '?q=' + query + '&page=' + (page + 1)}}">Next</a>
-      </li>
-    </ul>
-  </nav>
-  <!-- Pagination -->
-
+    
   <!-- Footer -->
   <div th:replace="~{footer :: footer}"></div>
 

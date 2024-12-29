@@ -35,6 +35,10 @@
     <br>
 
     <section>
+      <div th:if="${#lists.isEmpty(articles)}">
+        <p>No bookmarks found.</p>
+      </div>
+
       <div class="row gx-lg-5">
         <!-- Column 1 -->
         <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
@@ -63,6 +67,9 @@
     </section>
   </div>
   <!--Main layout-->
+
+  <!-- Footer -->
+  <div th:replace="~{footer :: footer}"></div>
 
   <!-- JS for bookmark interaction -->
   <script>
