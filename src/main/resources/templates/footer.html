@@ -1,9 +1,13 @@
 <!-- Footer fragment -->
 <div th:fragment="footer">
-    <footer class="text-center text-lg-start bg-body-tertiary text-muted">
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        <img th:src="@{/images/github-mark.png}" style="width: 20px; height: auto; margin-right: 5px;"/>
-        <a class="fw-bold align-middle" href="https://github.com/keithcho/newshive" style="color:#24282e">GitHub</a>
+    <footer class="bg-body-tertiary text-muted">
+        <div class="p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            <div class="position-absolute start-50 translate-middle">
+                <img th:src="@{/images/github-mark.png}" 
+                style="width: 20px; height: auto; margin-right: 4px; margin-bottom: 4px;"/>
+                <a class="fw-bold" href="https://github.com/keithcho/newshive">GitHub</a>
+                <a class="fw-bold mx-4" th:href="@{/about}">About</a>
+            </div>
         </div>
     </footer>
 </div>

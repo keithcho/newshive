@@ -12,3 +12,11 @@ body {
     color: #33656d;
     text-decoration: underline;
 }
+
+a.fw-bold {
+    color: #24282e;
+}
+
+a.fw-bold:hover {
+    color: #482b00;
+}

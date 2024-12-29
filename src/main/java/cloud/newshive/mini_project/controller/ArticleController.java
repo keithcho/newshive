@@ -120,4 +120,18 @@ public class ArticleController {
             return "error";
         }
     }
+
+    @GetMapping("/about")
+    public String getAbout(HttpSession session, Model model) {
+
+        String email = (String) session.getAttribute("email");
+        Boolean isAuthenticated = (Boolean) session.getAttribute("isAuthenticated");
+
+        if (email != null && isAuthenticated) {
+            model.addAttribute("email", email);
+            model.addAttribute("isAuthenticated", isAuthenticated);
+        }
+
+        return "about";
+    }
 }

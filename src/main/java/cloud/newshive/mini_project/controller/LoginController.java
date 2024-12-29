@@ -45,7 +45,8 @@ public class LoginController {
 
     // Endpoint for submission of login details
     @PostMapping(path="/login", consumes=MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String handleLogin(@Valid @ModelAttribute User user, BindingResult binding, HttpSession session, Model model) {
+    public String handleLogin(@Valid @ModelAttribute User user, BindingResult binding,
+                              HttpSession session, Model model) {
 
         if (binding.hasErrors()) {
             return "login";
@@ -116,7 +117,7 @@ public class LoginController {
 
         return "redirect:/verify";
     }
-    
+
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
